@@ -48,7 +48,7 @@ Install the AIY Projects Python library
     
 clone this aiyprojects-raspbian repo from GitHub:
 
-    git clone https://github.com/google/aiyprojects-raspbian.git AIY-projects-python
+    git clone https://github.com/mchambon/aiyprojects-raspbian.git AIY-projects-python
 
 And now install the Python library in editable mode:
 
