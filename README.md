@@ -50,10 +50,6 @@ clone this aiyprojects-raspbian repo from GitHub:
 
     git clone https://github.com/google/aiyprojects-raspbian.git AIY-projects-python
 
-
-
-
-
 And now install the Python library in editable mode:
 
     sudo pip3 install -e AIY-projects-python
@@ -62,25 +58,26 @@ Install required packages
 
 Disable built-in audio:
 
-    sudo sed -i -e "s/^dtparam=audio=on/#\0/" /boot/config.txt
+    sudo sed -i -e "s/^dtparam=audio=on/#\0/" /boot/firmware/config.txt
 
 Install PulseAudio:
+
     sudo apt-get install -y pulseaudio
     sudo mkdir -p /etc/pulse/daemon.conf.d/
     echo "default-sample-rate = 48000" | sudo tee /etc/pulse/daemon.conf.d/aiy.conf
-    
-You may also need to disable module-suspend-on-idle PulseAudio module for the Voice HAT:
-
-    sudo sed -i -e "s/^load-module module-suspend-on-idle/#load-module module-suspend-on-idle/" /etc/pulse/default.pa
 
 choose pulse audio
     
     raspi-config 
+    
+You may also need to disable module-suspend-on-idle PulseAudio module for the Voice HAT:
+
+    sudo sed -i -e "s/^load-module module-suspend-on-idle/#load-module module-suspend-on-idle/" /etc/pulse/default.pa
 
 
 
 Install Voice HAT packages
 Voice HAT does not require any driver installation. You only need to load device tree overlay on boot:
 
-    echo "dtoverlay=googlevoicehat-soundcard" | sudo tee -a /boot/config.txt
+    echo "dtoverlay=googlevoicehat-soundcard" | sudo tee -a /boot/firmware/config.txt
 
