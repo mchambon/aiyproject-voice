@@ -3,12 +3,13 @@ API libraries for AIY Projects (Voice Kit V1 aka Voice HAT)
 
 Only mic, HP and button/led
 
+1-Install
 
 Burn the latest Raspbian to an SD card
 
     bookworm
 
-Raspberry Pi Setup
+2-Raspberry Pi Setup
 
 
 enable i2c and i2s, disable audio  ???
@@ -35,7 +36,9 @@ Update and install the latest system updates (including kernel):
     sudo apt-get upgrade
 
 
-Setup a virtual environement
+3-Setup environement
+
+virtual environement
 https://learn.adafruit.com/python-virtual-environment-usage-on-raspberry-pi
 
     sudo apt install python3.11-venv
@@ -54,7 +57,12 @@ And now install the Python library in editable mode:
 
     sudo pip3 install -e AIY-projects-python
 
-Install required packages
+
+4-Install Voice HAT packages
+
+Voice HAT does not require any driver installation. You only need to load device tree overlay on boot:
+
+    echo "dtoverlay=googlevoicehat-soundcard" | sudo tee -a /boot/firmware/config.txt
 
 Disable built-in audio:
 
@@ -73,11 +81,15 @@ choose pulse audio
 You may also need to disable module-suspend-on-idle PulseAudio module for the Voice HAT:
 
     sudo sed -i -e "s/^load-module module-suspend-on-idle/#load-module module-suspend-on-idle/" /etc/pulse/default.pa
+    reboot
 
 
+5-Test 
 
-Install Voice HAT packages
-Voice HAT does not require any driver installation. You only need to load device tree overlay on boot:
+Audio output & Mic
 
-    echo "dtoverlay=googlevoicehat-soundcard" | sudo tee -a /boot/firmware/config.txt
+    python AIY-projects-python/Checkpoints/check_audio.py
 
+Button    
+
+    python AIY-projects-python/src/exemples/button_led.py
