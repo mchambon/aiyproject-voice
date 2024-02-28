@@ -1,6 +1,8 @@
 # aiyproject-voice
 API libraries for AIY Projects (Voice Kit V1 aka Voice HAT)
 
+Only mic, HP and button/led
+
 
 Burn the latest Raspbian to an SD card
 
