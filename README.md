@@ -4,10 +4,10 @@ API libraries for AIY Projects (Voice Kit V1 aka Voice HAT)
 
 Burn the latest Raspbian to an SD card
 
-
-    
+    bookworm
 
 Raspberry Pi Setup
+
 
 enable i2c and i2s, disable audio  ???
     
