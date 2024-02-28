@@ -1,11 +1,18 @@
 # aiyproject-voice
-API libraries for AIY Projects (Voice Kit)
+API libraries for AIY Projects (Voice Kit V1 aka Voice HAT)
 
 
 Burn the latest Raspbian to an SD card
 
 
+    
+
 Raspberry Pi Setup
+
+enable i2c and i2s, disable audio  ???
+    
+    sudo raspi-config
+    
 
     sudo apt update
     sudo apt -y upgrade
